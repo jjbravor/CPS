@@ -1,0 +1,149 @@
+﻿html{
+    height:100%;
+}
+
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    min-height: 100%;
+    background-image: url('../../../Images/trailer-gogreen.jpg');
+    background-size: cover;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+label {
+    font-weight: 400;
+}
+
+form {
+    text-align: center;  
+}
+
+div.form {
+    padding-top: 3%;
+    padding-bottom: 4%;
+    margin-top: 1%;
+    background-color: #ffffff;
+    background-color: #ffffffed;
+    border-radius: 10px;
+}
+
+.btn {
+    margin-top: 30px;
+}
+
+.footer {
+    text-align: left;
+    padding: 10px 18px;
+    background: #ffffff;
+    border-top: 1px solid #e4e5e7;
+    transition: all 0.4s ease 0s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.alert {
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.img-circle {
+    width: 128px;
+    border-radius: 50%;
+    border: 1px solid #ccc!important;;
+}
+
+.m-b {
+    margin-bottom: 15px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+.flipInX {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInX;
+  animation-name: flipInX;
+}
+
+@media (max-width: 500px) {
+    h2 {
+        font-size: 25px;
+    }
+}

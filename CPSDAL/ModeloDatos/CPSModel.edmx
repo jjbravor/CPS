@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBProductionLineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="pro_codigo" />
+            <PropertyRef Name="pro_emp_id" />
+            <PropertyRef Name="pro_capa" />
+          </Key>
+          <Property Name="pro_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pro_parentid" Type="int" Nullable="false" />
+          <Property Name="pro_codigo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pro_emp_id" Type="int" Nullable="false" />
+          <Property Name="pro_nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="pro_descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="pro_umedida" Type="int" Nullable="false" />
+          <Property Name="pro_tipo" Type="int" Nullable="false" />
+          <Property Name="pro_formulado" Type="bit" Nullable="false" />
+          <Property Name="pro_capa" Type="int" Nullable="false" />
+          <Property Name="pro_familia" Type="int" Nullable="false" />
+          <Property Name="pro_subfamilia" Type="int" Nullable="false" />
+          <Property Name="pro_estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTORECETA">
+          <Key>
+            <PropertyRef Name="pre_pro_codigo" />
+            <PropertyRef Name="pre_correlativo" />
+          </Key>
+          <Property Name="pre_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pre_pro_codigo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="pre_correlativo" Type="int" Nullable="false" />
+          <Property Name="pre_cantidad" Type="money" Nullable="false" />
+          <Property Name="pre_usr_creac" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="pre_fec_creac" Type="datetime" Nullable="false" />
+          <Property Name="pre_usr_modif" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="pre_fec_modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DBProductionLineModelStoreContainer">
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTORECETA" EntityType="Self.PRODUCTORECETA" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBProductionLineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="pro_codigo" />
+            <PropertyRef Name="pro_emp_id" />
+            <PropertyRef Name="pro_capa" />
+          </Key>
+          <Property Name="pro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pro_parentid" Type="Int32" Nullable="false" />
+          <Property Name="pro_codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pro_emp_id" Type="Int32" Nullable="false" />
+          <Property Name="pro_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pro_descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pro_umedida" Type="Int32" Nullable="false" />
+          <Property Name="pro_tipo" Type="Int32" Nullable="false" />
+          <Property Name="pro_formulado" Type="Boolean" Nullable="false" />
+          <Property Name="pro_capa" Type="Int32" Nullable="false" />
+          <Property Name="pro_familia" Type="Int32" Nullable="false" />
+          <Property Name="pro_subfamilia" Type="Int32" Nullable="false" />
+          <Property Name="pro_estado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTORECETA">
+          <Key>
+            <PropertyRef Name="pre_pro_codigo" />
+            <PropertyRef Name="pre_correlativo" />
+          </Key>
+          <Property Name="pre_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pre_pro_codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pre_correlativo" Type="Int32" Nullable="false" />
+          <Property Name="pre_cantidad" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="pre_usr_creac" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pre_fec_creac" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pre_usr_modif" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pre_fec_modif" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="DBProductionLineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
+          <EntitySet Name="PRODUCTORECETA" EntityType="Self.PRODUCTORECETA" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBProductionLineModelStoreContainer" CdmEntityContainer="DBProductionLineEntities">
+          <EntitySetMapping Name="PRODUCTO">
+            <EntityTypeMapping TypeName="DBProductionLineModel.PRODUCTO">
+              <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+                <ScalarProperty Name="pro_parentid" ColumnName="pro_parentid" />
+                <ScalarProperty Name="pro_codigo" ColumnName="pro_codigo" />
+                <ScalarProperty Name="pro_emp_id" ColumnName="pro_emp_id" />
+                <ScalarProperty Name="pro_nombre" ColumnName="pro_nombre" />
+                <ScalarProperty Name="pro_descripcion" ColumnName="pro_descripcion" />
+                <ScalarProperty Name="pro_umedida" ColumnName="pro_umedida" />
+                <ScalarProperty Name="pro_tipo" ColumnName="pro_tipo" />
+                <ScalarProperty Name="pro_formulado" ColumnName="pro_formulado" />
+                <ScalarProperty Name="pro_capa" ColumnName="pro_capa" />
+                <ScalarProperty Name="pro_familia" ColumnName="pro_familia" />
+                <ScalarProperty Name="pro_subfamilia" ColumnName="pro_subfamilia" />
+                <ScalarProperty Name="pro_estado" ColumnName="pro_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTORECETA">
+            <EntityTypeMapping TypeName="DBProductionLineModel.PRODUCTORECETA">
+              <MappingFragment StoreEntitySet="PRODUCTORECETA">
+                <ScalarProperty Name="pre_id" ColumnName="pre_id" />
+                <ScalarProperty Name="pre_pro_codigo" ColumnName="pre_pro_codigo" />
+                <ScalarProperty Name="pre_correlativo" ColumnName="pre_correlativo" />
+                <ScalarProperty Name="pre_cantidad" ColumnName="pre_cantidad" />
+                <ScalarProperty Name="pre_usr_creac" ColumnName="pre_usr_creac" />
+                <ScalarProperty Name="pre_fec_creac" ColumnName="pre_fec_creac" />
+                <ScalarProperty Name="pre_usr_modif" ColumnName="pre_usr_modif" />
+                <ScalarProperty Name="pre_fec_modif" ColumnName="pre_fec_modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

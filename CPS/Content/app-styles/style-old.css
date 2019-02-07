@@ -1,0 +1,20 @@
+﻿form > div#wrapper > div > table {
+    color: #000!important;
+    background-color: #fff!important;
+    margin-left: 20px!important;
+    position:relative!important;
+}
+
+form > div#wrapper > div > table tr {
+    color: #000;
+}
+
+.pantalla_titulo {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px;
+}
+
+.label_normal {
+    color: #000;
+}

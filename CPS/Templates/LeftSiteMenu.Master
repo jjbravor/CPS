@@ -1,0 +1,162 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LeftSiteMenu.master.cs" Inherits="CPS.Templates.LeftSiteMenu" %>
+
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CPS - Cardboard Production System</title>
+
+    <asp:ContentPlaceHolder ID="Head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body class="fixed-navbar fixed-sidebar">
+    <form id="form_masterpage" runat="server" method="post" submitdisabledcontrols="true" style="width: 100%;">
+
+        <%: System.Web.Optimization.Styles.Render("~/bundles/app-styles") %>
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="6000" EnablePageMethods="true"></asp:ScriptManager>
+
+        <!-- Simple splash screen-->
+        <div class="splash">
+            <div class="color-line"></div>
+            <div class="splash-title">
+                <h1>CASVAL</h1>
+                <p>Cargando</p>
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--[if lt IE 9]>
+        <p class="alert alert-danger">Usted esta usando un navegador <strong>desactualizado</strong>. Por favor <a href="http://browsehappy.com/">actualize tu navegador</a> para una mejor experiencia.</p>
+        <![endif]-->
+
+        <!-- Header -->
+        <div id="header">
+            <div class="color-line">
+            </div>
+            <%--<div id="logo" class="light-version">
+                <img runat="server" src="~/Images/dhl_logo.gif" alt="DHL Logo" />
+            </div>--%>
+            <nav role="navigation">
+                <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+                <asp:Label ID="lblAppName" runat="server" CssClass="app-name">CPS</asp:Label>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav no-borders">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" title="Sitios">
+                                <i class="fa fa-th"></i>
+                            </a>
+                            <div class="dropdown-menu hdropdown bigmenu animated flipInX">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="fa fa-cube text-warning" aria-hidden="true"></i>
+                                                    <h5>CPS</h5>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <%-- <li>
+                            <a class="dropdown-toggle label-menu-corner" href="https://webmail.dhl.com" target="_blank" title="Mail">
+                                <i class="fa fa-envelope-o"></i>
+                            </a>
+                        </li>--%>
+                        <li class="dropdown">
+                            <a title="Salir" runat="server" class="logout" href="~/Cerrar_Sesion.aspx">
+                                <i class="fa fa-sign-out text-danger"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Navigation -->
+        <aside id="menu">
+            <div id="navigation">
+                <div class="profile-picture">
+                    <a href="#">
+                        <asp:Image ID="imgProfile" class="img-circle m-b" alt="Avatar" runat="server" />
+                    </a>
+                    <div class="stats-label text-color">
+                        <asp:Label ID="lblUserName" runat="server" CssClass="font-extra-bold font-uppercase" />
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                <small class="text-muted">
+                                    <asp:Label ID="lblUserTitle" runat="server" />
+                                </small>
+                            </a>
+                        </div>
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                <small class="text-muted">
+                                    <asp:Label ID="lblUserStation" runat="server" />
+                                    <b id="caretChangeStation" runat="server" class="caret" visible="false"></b>
+                                </small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-menu">
+                    <asp:PlaceHolder ID="mainTemplateMenu" runat="server" />
+                </div>
+            </div>
+
+        </aside>
+
+        <%-- Main Wrapper --%>
+        <div id="wrapper">
+
+            <%-- Alert --%>
+            <div id="alertEnv" runat="server" class="alert alert-info" visible="false">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong id="alertEnvTitle" runat="server"></strong>
+                <span id="alertEnvText" runat="server"></span>
+            </div>
+            <div id="alert" runat="server" class="alert alert-danger" visible="false">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong id="alertTitle" runat="server"></strong>
+                <span id="alertText" runat="server"></span>
+            </div>
+
+            <%-- Main Content --%>
+            <asp:ContentPlaceHolder ID="Main" runat="server" />
+
+            <%-- Footer --%>
+            <footer class="footer" style="z-index: 10; position: fixed;">
+                <%--  <div id="dp_dhl_logo" class="left">
+                    <img runat="server" alt="Deutsche Post DHL" src="~/Images/dp_dhl_com.gif">
+                </div>--%>
+
+                <div class="left text">
+                    CB-SOFTWARE LTDA. <i class="fa fa-copyright"></i><%= DateTime.Now.Year %>
+                </div>
+
+                <div class="right text">
+                    Versi&oacute;n:
+                    <asp:Label ID="lblVersion" runat="server" />
+                </div>
+            </footer>
+        </div>
+
+        <%: System.Web.Optimization.Scripts.Render("~/bundles/app") %>
+
+        <%-- Script Content --%>
+        <asp:ContentPlaceHolder ID="Scripts" runat="server" />
+
+
+    </form>
+</body>
+</html>
